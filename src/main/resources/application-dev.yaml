@@ -1,0 +1,72 @@
+#server:
+#  port: 8084
+#  servlet:
+#    context-path: '/ead-notification/'
+
+spring:
+  config: #Configuração de conexão com o Config Server
+    import: 'configserver:' #O optional:, define que caso o config server não esteja disponível, será utilizado as configurações desse arquivo.
+  cloud:
+    config:
+      discovery:
+        service-id: ead-config-server
+      username: configserver
+      password: 'ead123cs'
+#  cloud:
+#    config:
+#      discovery:
+#        serviceId: ead-config-server
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/ead-notification-v2
+#    username: postgres
+#    password: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#      dialect: org.hibernate.dialect.PostgreSQLDialect
+#      jdbc:
+#        lob.non-contextual-creation: true
+#    properties:
+#      hibernate:
+#        show_sql: true
+#  output:
+#    ansi:
+#      enabled: Always
+#  rabbitmq:
+#    addresses: amqps://asepknsw:AkZI1YjGQhqp8qSAFcm56tHkiXyiOjiE@shark.rmq.cloudamqp.com/asepknsw
+#
+#
+#logging:
+#  level:
+#    com.ead: TRACE
+#    root: INFO
+#    org.springframework.web: DEBUG
+#    org.hibernate: INFO
+#
+#
+## propriedades do broker
+#ead:
+#  broker:
+#    exchange:
+#      notificationCommandExchange: ead.notificationcommand
+#    queue:
+#      notificationCommandQueue:
+#        name: ead.notificationcommand.ms.notification
+#    key:
+#      notificationCommandKey: ms.notification
+#
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include:
+#          - refresh
+#          - health
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: 'http://localhost:8761/eureka'
+#  instance:
+#    hostname: localhost
